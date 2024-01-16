@@ -1,0 +1,12 @@
+<%= form_with model: @post do |form| %>
+    <%= form.label :title %>
+    <%= form.text_field :title %><br>
+    <%= form.label :date %>
+    <%= form.date_field :date %><br>
+    <%= form.label :content %>
+    <%= form.rich_text_area :content, size: "50x20" %><br>
+    <%= form.label :category_id %>
+    <%= form.collection_select :category_id, Category.order(:name), :id, :name %><br>
+
+    <%= form.submit %>
+<% end %>
