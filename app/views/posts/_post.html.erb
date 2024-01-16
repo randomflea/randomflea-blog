@@ -2,11 +2,13 @@
     <h2><%= @current_post.title %></h2>
     <h4><%= @current_post.date %></h4>
     <p><%= @current_post.content %></p>
-<ul>
-  <li><%= link_to "Edit", edit_post_path(@current_post) %></li>
-  <li><%= link_to "Destroy", post_path(@current_post), data: {
+    <% if user_signed_in? && current_user.admin? %>
+    <ul>
+        <li><%= link_to "Edit", edit_post_path(@current_post) %></li>
+        <li><%= link_to "Destroy", post_path(@current_post), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   } %></li>
-</ul>
+    </ul>
+    <% end %>
 </div>

@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+    before_action :check_admin, only: [:new, :create, :destroy, :edit, :update]
+    
     def index
         @current_post = Post.last
         @posts = Post.all
@@ -50,5 +52,10 @@ class PostsController < ApplicationController
 
     def post_params
         params.require(:post).permit(:title, :date, :content, :category_id)
+    end
+
+    def check_admin
+        redirect_to root_path unless current_user.admin?
+        flash[:danger] = "No Access to that"
     end
 end

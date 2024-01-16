@@ -1,9 +1,11 @@
 <div class="header">
     <a href="https://blog.randomflea.dev">Random Flea's<br>Blog</a>
-    <%# <a href="blog-index.html">Index</a> %>
+    <% if user_signed_in? && current_user.admin? %>
+        <%= link_to "Create Post", new_post_path %>
+    <% end %>
     <div class="user-buttons">
     <% if user_signed_in? %>
-        <%= link_to "Sign Out", destroy_user_session_path %>
+        <%= link_to "Sign Out", destroy_user_session_path, data: { turbo_method: :delete } %>
     <% else %>
         <%= link_to "Sign In", new_user_session_path %>
         <%= link_to "Sign Up", new_user_registration_path %>
