@@ -2,7 +2,7 @@
 lock "~> 3.18.0"
 
 set :application, "randomflea-blog"
-set :repo_url, "git@github.com:randomflea/randomflea-blog.git"
+set :repo_url, "hightechamish-github:randomflea/randomflea-blog.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
