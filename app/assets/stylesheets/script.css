@@ -77,8 +77,8 @@ a {
     color: #00FF1A;
 }
 
-.content p {
-    
+.trix-content pre {
+    background-color: black;
 }
 
 .content h2, .content h4 {
