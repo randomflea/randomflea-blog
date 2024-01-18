@@ -1,0 +1,13 @@
+<%= form_with model: [ @current_post, @current_post.comments.build ] do |form| %>
+  <p>
+    <%= form.hidden_field :commenter, value: current_user.username %>
+    <%= form.hidden_field :date, value: Time.now %>
+  </p>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

@@ -11,4 +11,16 @@
                   } %></li>
     </ul>
     <% end %>
+    <h2>Comments</h2>
+    <% if @current_post.comments %>
+        <%= render @current_post.comments %>
+    <% else %>
+        <p>Be the first to comment!</p>
+    <% end %>
+    <% if user_signed_in? %>
+    <h2>Add a comment:</h2>
+    <%= render 'comments/form' %>
+    <% else %>
+    <p>Sign In to comment</p>
+    <% end %>
 </div>
